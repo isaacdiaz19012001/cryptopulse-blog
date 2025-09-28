@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoPulse - Post III: Técnicas y Metodologías</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="icon" href="../../img/logo.png" type="image/png">
+    <style>
+        /* Estilos específicos para el post, heredando la mayoría de styles.css */
+        .post-content-container {
+            padding: 40px 20px;
+            min-height: 80vh;
+        }
+        .post-article {
+            /* Simula la apariencia de .section */
+            background-color: #131c31; 
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #00d2ff;
+        }
+        .post-article h1, .post-article h2, .post-article h3 {
+            color: #00d2ff;
+            margin-top: 25px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3a7bd5;
+        }
+        .post-article h1 { font-size: 2.5em; border-bottom: none; }
+        .post-article h3 { color: #3a7bd5; border-bottom: none; }
+        .post-metadata-info {
+            font-size: 0.9em;
+            color: #6a7c9d;
+            margin-bottom: 30px;
+        }
+        .back-to-index {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #00d2ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-to-index:hover { text-decoration: underline; }
+        
+        .technique-box {
+            background: #1a2c4b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #00d2ff;
+        }
+        .technique-box h3 {
+            border-bottom: 2px dotted #3a7bd5;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="profile-info">
+                <h1>Documentación y Entregas</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container post-content-container">
+        <!-- Asumo que tienes un archivo posts.html para el índice -->
+        <a href="../posts.html" class="back-to-index">&larr; Volver al Índice de Entregas</a>
+        
+        <article class="post-article">
+            <h1 class="post-title">Entrega I: Técnicas y Metodologías del Desarrollo de Sistemas</h1>
+            <p class="post-metadata-info">Publicado por Isaac Díaz Mora | Octubre 2025 | Asignatura: Sistemas de Información I</p>
+
+            <p>El desarrollo exitoso de <strong>CryptoPulse</strong>, un sistema que debe ser rápido, seguro y adaptativo al mercado criptográfico, requiere la aplicación rigurosa de una metodología de desarrollo adecuada y el uso de técnicas específicas para la fase de análisis de requisitos.</p>
+            <p>Como se estableció previamente, la metodología elegida es el **Desarrollo Rápido de Aplicaciones (RAD)** complementado con el **Modelo de Prototipos**. A continuación, se detallan las dos (2) técnicas clave que se aplican dentro de estas fases para garantizar el éxito del proyecto.</p>
+
+            <h2>1. Técnica Seleccionada: Prototipos (Técnica de Desarrollo)</h2>
+            <div class="technique-box">
+                <h3>Definición y Objetivo</h3>
+                <p>La técnica de Prototipos consiste en la creación de un modelo funcional (aunque incompleto) del sistema para presentarlo al usuario final, obtener **retroalimentación** inmediata y refinar los requisitos antes de la codificación final. En CryptoPulse, esta técnica es esencial para el diseño de la interfaz y la validación de la lógica de alertas.</p>
+                
+                <h3>Aplicación en CryptoPulse</h3>
+                <p>Esta técnica se aplica principalmente en la fase de **Diseño y Desarrollo de RAD**, enfocándose en:</p>
+                
+                <h4>a) Prototipo del Dashboard Principal</h4>
+                <p>Se desarrolló un prototipo interactivo (mockup en Figma o HTML simple) que muestra cómo se visualizarán el rendimiento del portfolio (ganancias/pérdidas) y las métricas clave de las criptomonedas (Ej: % de cambio en 24h, RSI). Esto permitió:</p>
+                <ul class="feature-list">
+                    <li>Validar la **usabilidad** y la experiencia del usuario (UX) en el manejo de grandes cantidades de datos.</li>
+                    <li>Confirmar los **requisitos de visualización** (gráficos, tablas, colores) antes de invertir tiempo en la conexión con la base de datos real.</li>
+                </ul>
+
+                <h4>b) Prototipo del Formulario de Alertas Avanzadas</h4>
+                <p>La configuración de alertas (Ej: "Notificarme si BTC cae por debajo de mi precio de compra *Y* el RSI es inferior a 30") es compleja. Se usó un prototipo para:</p>
+                <ul class="feature-list">
+                    <li>Evaluar la **claridad de los campos** de entrada de las condiciones lógicas (AND, OR).</li>
+                    <li>Asegurar que el usuario puede definir una alerta avanzada **sin errores** de sintaxis lógica.</li>
+                </ul>
+
+                <p><strong>Resultado Clave:</strong> Se identificó la necesidad de un selector de criptomoneda más visible y se simplificó el proceso de ingreso de transacciones, ahorrando correcciones costosas en fases posteriores.</p>
+            </div>
+            
+            <div class="separador">
+                <h2>2. Técnica Seleccionada: Investigación de Hechos (Técnica de Recolección de Requisitos)</h2>
+            </div>
+            <div class="technique-box">
+                <h3>Definición y Objetivo</h3>
+                <p>La Investigación de Hechos abarca los métodos utilizados para recopilar, analizar y registrar la información sobre la situación actual o los requisitos del nuevo sistema. Para CryptoPulse, se utilizaron dos métodos específicos de esta técnica:</p>
+                
+                <h4>a) Análisis de Documentos (Requisitos de Mercado)</h4>
+                <p>Se revisaron documentos y especificaciones de sistemas de la competencia (Coinbase, Binance, TradingView) y documentación de APIs financieras. Esto permitió establecer:</p>
+                <ul class="feature-list">
+                    <li>**Requisitos No Funcionales:** Nivel de latencia aceptable para la actualización de precios (datos en tiempo real).</li>
+                    <li>**Requisitos Funcionales:** Identificación de las métricas estándar de portfolio que son esenciales para un usuario inversor (ROI, P&L, Coste Promedio).</li>
+                </ul>
+
+                <h4>b) Entrevistas Informales (Validación de Usuario)</h4>
+                <p>Se realizaron entrevistas informales a potenciales usuarios (inversores de criptomonedas) para obtener una perspectiva directa sobre sus frustraciones con las herramientas existentes. Las preguntas clave se centraron en:</p>
+                <ul class="feature-list">
+                    <li>**¿Qué tipo de alertas faltan en las aplicaciones que usa?** (Resultado: Necesidad de alertas basadas en indicadores técnicos como RSI o cruces de medias móviles).</li>
+                    <li>**¿Cuál es la información más crítica que necesita ver inmediatamente en su dashboard?** (Resultado: Enfoque en el "Valor Total Actual" y la "Ganancia/Pérdida No Realizada").</li>
+                </ul>
+
+                <p><strong>Resultado Clave:</strong> La combinación de análisis de documentos (lo que *debe* tener) y entrevistas (lo que el usuario *quiere* que tenga) aseguró que los requisitos funcionales de CryptoPulse estuvieran perfectamente alineados con las expectativas de los inversores.</p>
+            </div>
+
+            <h2>Conclusión</h2>
+            <p>La elección de **RAD** garantiza un desarrollo iterativo y enfocado en la arquitectura de datos. La aplicación de la técnica de **Prototipos** nos permite validar la usabilidad del Dashboard, mientras que la **Investigación de Hechos** (Análisis de Documentos y Entrevistas) ha sido fundamental para definir con precisión los requisitos funcionales y no funcionales del sistema, asegurando que CryptoPulse cumpla con las altas exigencias del mercado criptográfico.</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>© 2025 CryptoPulse - Todos los derechos reservados | Proyecto Académico SI I</p>
+        </div>
+    </footer>
+
+
+    <script src="../..script.js"></script>
+</body>
+</html>

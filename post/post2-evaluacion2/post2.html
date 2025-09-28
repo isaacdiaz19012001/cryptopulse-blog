@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoPulse - Post II: Modelización</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="icon" href="../../img/logo.png" type="image/png">
+    <style>
+        /* * Estilos Mínimos específicos (manteniendo la estructura de post)
+         * Se eliminaron los estilos de color, tipografía y sombras, 
+         * ya que están cubiertos por 'styles.css'
+         */
+        .post-content-container {
+            padding: 40px 20px;
+            min-height: 80vh;
+        }
+        /* Usamos 'section' para aplicar el estilo de tarjeta y borde de 'styles.css' */
+        .post-article {
+            /* Simula la apariencia de .section, pero sin la animación de scroll */
+            background-color: #131c31; /* Fondo similar al de .section en styles.css */
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #00d2ff;
+        }
+
+        /* Títulos H1 y H2 se ajustan a los colores definidos en post-article y en .section */
+        .post-article h1 {
+            color: #00d2ff;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .post-article h2 {
+            color: #00d2ff; /* Color principal de títulos de sección */
+            margin-top: 25px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3a7bd5;
+        }
+        .post-article h3 {
+            color: #3a7bd5; /* Color secundario de subtítulos de sección */
+            margin: 15px 0 10px;
+        }
+        .post-article p, .post-article ul, .post-article li {
+            color: #c2c2c2; /* Color de texto general de styles.css */
+        }
+        
+        .post-metadata-info {
+            font-size: 0.9em;
+            color: #6a7c9d;
+            margin-bottom: 30px;
+        }
+        .diagram-container {
+            background-color: #0a0e17;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #3a7bd5;
+            text-align: center;
+        }
+        .diagram-container p {
+            font-style: italic;
+            color: #00d2ff;
+            margin-top: 10px;
+        }
+        .post-article img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .back-to-index {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #00d2ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-to-index:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="profile-info">
+                <h1>Documentación y Entregas</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="container post-content-container">
+        <a href="../posts.html" class="back-to-index">&larr; Volver al Índice de Entregas</a>
+        
+        <article class="post-article">
+            <h1 class="post-title">Entrega II: Modelización de Procesos y Datos para CryptoPulse</h1>
+            <p class="post-metadata-info">Publicado por Isaac Díaz Mora | Septiembre 2025 | Asignatura: Sistemas de Información I</p>
+
+            <p>Esta segunda entrega documenta las decisiones clave tomadas para la modelización del sistema CryptoPulse, cubriendo la metodología de desarrollo elegida, los diagramas de flujo de datos (DFD) y el diseño de la arquitectura de datos (Diagrama Entidad-Relación).</p>
+
+            <h2>1. Metodología de Desarrollo: RAD con Prototipos</h2>
+            <p>Debido a la naturaleza cambiante del mercado cripto y la necesidad de validación constante de la interfaz de usuario, se ha optado por un enfoque híbrido ágil: **Desarrollo Rápido de Aplicaciones (RAD)** complementado con el **Modelo de Prototipos**.</p>
+            <ul>
+                <li>**RAD:** Prioriza una arquitectura de datos sólida desde el inicio (mediante el E-R) y permite iteraciones rápidas en la lógica de negocio (Alertas y Presentación).</li>
+                <li>**Prototipos:** Se utiliza para validar rápidamente los requisitos de la interfaz de usuario, especialmente para el Dashboard y la configuración avanzada de Alertas, asegurando la satisfacción del usuario final antes de invertir tiempo en la codificación completa del backend.</li>
+            </ul>
+
+            <h2>2. Modelización de Procesos: Diagrama de Flujo de Datos (DFD)</h2>
+            <p>El DFD nos ayuda a visualizar cómo fluye la información entre los usuarios, el sistema y las fuentes de datos externas. Hemos desarrollado el DFD de Contexto (Nivel 0) y el DFD Nivel 1 (descomposición del Proceso Central).</p>
+
+            <h3>2.1. DFD Nivel 0 (Contexto)</h3>
+            <p>Muestra el sistema **CryptoPulse** como una única entidad interactuando con tres entidades externas principales:</p>
+
+            <h3>2.2. DFD Nivel 1 (Procesos Clave)</h3>
+            <p>Descomponemos el sistema en sus tres procesos fundamentales:</p>
+            <ul>
+                <li>**P1: Gestión de Portfolio (CRUD):** Permite al **Usuario** registrar, actualizar o eliminar sus **Transacciones** (D1).</li>
+                <li>**P2: Motor de Presentación:** Muestra el **Dashboard** al **Usuario**, calculando ganancias/pérdidas en tiempo real usando datos de **Transacciones** (D1) y **API de Precios**.</li>
+                <li>**P3: Motor de Alertas (Cron Job):** Proceso automatizado que se ejecuta periódicamente, consultando **Alertas** (D2) y **API de Precios** para generar **Notificaciones** al **Usuario** si se cumple una condición.</li>
+            </ul>
+
+            <h2>3. Modelización de Datos: Diagrama Entidad-Relación (E-R)</h2>
+            <p>El E-R define la estructura de nuestra base de datos NoSQL (MongoDB), vital para el almacenamiento de transacciones y alertas personalizadas.</p>
+            <div class="diagram-container">
+                <img src="../../img/diagramaE-R.png" alt="Diagrama Entidad-Relación (Placeholder)">
+                <p>Esquema de las entidades y relaciones principales (Pendiente de cargar el diagrama final).</p>
+            </div>
+
+            <h3>Entidades Clave:</h3>
+            <ul>
+                <li>**Usuario:** Almacena información de registro y preferencias de notificación.</li>
+                <li>**Transacción (D1):** Registra cada compra/venta del usuario. Atributos: `Usuario_ID (FK)`, `Cripto`, `Cantidad`, `Precio_Compra`, `Fecha`.</li>
+                <li>**Alerta (D2):** Registra las condiciones definidas por el usuario. Atributos: `Usuario_ID (FK)`, `Tipo_Alerta`, `Condicion` (JSON para alertas avanzadas), `Estado`.</li>
+            </ul>
+
+            <h2>4. Modelización de Redes: Arquitectura 3-Tier Web</h2>
+            <p>Para asegurar la **seguridad** y **eficiencia**, se ha elegido una arquitectura de tres capas (3-Tier):</p>
+            <div class="diagram-container">
+                <p><strong>Capa 1 (Cliente):</strong> Navegador Web (Presentación - HTML/CSS/JS/React)</p>
+                <p><strong>Capa 2 (Servidor):</strong> Servidor de Aplicaciones (Lógica de Negocio - API REST, Motores P2 y P3)</p>
+                <p><strong>Capa 3 (Datos):</strong> Servidor de Base de Datos (MongoDB - Almacenes D1 y D2)</p>
+            </div>
+            <p>**Justificación:** El aislamiento de la Base de Datos (Capa 3) del acceso directo del Cliente (Capa 1) maximiza la seguridad. Toda petición pasa por la Capa 2, que valida y gestiona la lógica, garantizando el control sobre las transacciones y la ejecución del Motor de Alertas.</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>© 2025 CryptoPulse - Todos los derechos reservados | Proyecto Académico SI I</p>
+        </div>
+    </footer>
+
+
+    <script src="../../script.js"></script>
+</body>
+</html>
